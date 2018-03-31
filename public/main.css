@@ -1,0 +1,108 @@
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Josefin Sans Regular'), local('JosefinSans-Regular'), url(https://fonts.gstatic.com/s/josefinsans/v12/Qw3aZQNVED7rKGKxtqIqX5EUDXx9.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Josefin Sans Bold'), local('JosefinSans-Bold'), url(https://fonts.gstatic.com/s/josefinsans/v12/Qw3FZQNVED7rKGKxtqIqX5Ectllte10k.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nanum Gothic';
+  font-style: normal;
+  font-weight: 400;
+  src: local('NanumGothic'), url(https://fonts.gstatic.com/s/nanumgothic/v7/PN_3Rfi-oW3hYwmKDpxS7F_D-djb.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nanum Gothic';
+  font-style: normal;
+  font-weight: 700;
+  src: local('NanumGothic Bold'), local('NanumGothic-Bold'), url(https://fonts.gstatic.com/s/nanumgothic/v7/PN_oRfi-oW3hYwmKDpxS7F_LQv3LyVsj.ttf) format('truetype');
+}
+body {
+  display: grid;
+  grid-template-columns: auto 250px;
+}
+#right-aside {
+  background-color: #B5BFA1;
+  text-align: center;
+}
+#main {
+  display: grid;
+  grid-template-rows: 150px 50px auto auto 100px;
+  background-color: #EDBFB7;
+  text-align: center;
+}
+#primary-nav {
+  background-color: #F283B6;
+  border-bottom: 8px solid #E06C9F;
+}
+#secondary-nav ul li a,
+#banner {
+  color: white;
+  font-size: 1.5em;
+}
+#secondary-nav ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+#secondary-nav ul li {
+  justify-content: center;
+  padding-top: 20px;
+  font-weight: bold;
+}
+#right-aside-inside {
+  display: none;
+}
+#primary-nav img {
+  width: 200px;
+}
+.pilot {
+  padding: 40px;
+  border-left: 8px solid #6E9887;
+  color: white;
+}
+.pilot img {
+  width: 150px;
+}
+footer {
+  background-color: #F283B6;
+  border-top: 8px solid #E06C9F;
+}
+.cities {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: white;
+  text-align: left;
+}
+.cities li {
+  padding: 20px;
+  border: 2px solid #E06C9F;
+}
+.city-img {
+  width: 250px;
+  height: 150px;
+  background-size: 120%;
+  /* ath passar ekki í 100% */
+  margin-bottom: 20px;
+}
+.text-wrapper h2 {
+  font-size: 2em;
+}
+.banner-area {
+  padding: 40px;
+}
+.city-previews {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 40px;
+}
+.city-previews li {
+  height: 150px;
+  width: 150px;
+  background-size: contain;
+  border-radius: 50%;
+}
