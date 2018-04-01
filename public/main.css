@@ -32,13 +32,22 @@ body {
 }
 #main {
   display: grid;
-  grid-template-rows: 150px 50px auto auto 100px;
+  grid-template-rows: auto;
+  grid-template-areas: "primary-nav" "secondary-nav" "cities" "banner-area" "footer";
   background-color: #EDBFB7;
   text-align: center;
 }
 #primary-nav {
+  grid-area: primary-nav;
   background-color: #F283B6;
   border-bottom: 8px solid #E06C9F;
+  padding-top: 10px;
+}
+#primary-nav img {
+  width: 200px;
+}
+#secondary-nav {
+  grid-area: secondary-nav;
 }
 #secondary-nav ul li a,
 #banner {
@@ -47,18 +56,19 @@ body {
 }
 #secondary-nav ul {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  grid-template-columns: repeat(3, auto);
 }
 #secondary-nav ul li {
-  justify-content: center;
   padding-top: 20px;
   font-weight: bold;
 }
+#secondary-nav ul li a {
+  padding: 40px;
+  vertical-align: 50%;
+}
 #right-aside-inside {
   display: none;
-}
-#primary-nav img {
-  width: 200px;
 }
 .pilot {
   padding: 40px;
@@ -68,11 +78,8 @@ body {
 .pilot img {
   width: 150px;
 }
-footer {
-  background-color: #F283B6;
-  border-top: 8px solid #E06C9F;
-}
 .cities {
+  grid-area: cities;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   background-color: white;
@@ -87,12 +94,13 @@ footer {
   height: 150px;
   background-size: 120%;
   /* ath passar ekki í 100% */
-  margin-bottom: 20px;
 }
 .text-wrapper h2 {
   font-size: 2em;
+  margin-top: 10px;
 }
 .banner-area {
+  grid-area: banner-area;
   padding: 40px;
 }
 .city-previews {
@@ -103,6 +111,13 @@ footer {
 .city-previews li {
   height: 150px;
   width: 150px;
-  background-size: contain;
   border-radius: 50%;
+  background-size: 170%;
+  /* ath passar ekki í 100% */
+}
+footer {
+  grid-area: footer;
+  background-color: #F283B6;
+  border-top: 8px solid #E06C9F;
+  padding: 40px;
 }
