@@ -5,6 +5,9 @@
 body {
     display:grid;
     grid-template-columns: auto 250px;
+    grid-template-areas:
+        "main-area"
+        "aside";
 }
 #right-aside {
     background-color:#B5BFA1;
@@ -60,6 +63,8 @@ body {
 
 #right-aside-inside {
     display: none;
+    grid-area: aside;
+
 }
 
 .pilot {
@@ -114,4 +119,38 @@ footer {
     border-top: 8px solid #E06C9F;
     padding: @commonPadding;
 
+}
+/* tablet */
+@media screen and (max-width: 1024px) {
+    body {
+        grid-template-columns: auto;
+
+    }
+    
+}
+
+
+
+@media screen and (max-width: 450px) {
+    body {
+        grid-template-columns: auto;
+    }
+    #right-aside {
+        display: none;
+    }    
+    main {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "primary-nav"
+            "secondary-nav"
+            "cities"
+            "banner-area"
+            "footer";
+        background-color: #EDBFB7;
+        text-align: center;
+    }
+    .cities {
+        grid-template-rows: repeat(3, auto);
+    }
 }
