@@ -25,111 +25,110 @@
 body {
   display: grid;
   grid-template-columns: auto 250px;
-  grid-template-areas: "main-area" "aside";
+  /*grid-template-areas:
+        "main-area"
+        "aside";*/
 }
-#right-aside {
-  background-color: #B5BFA1;
-  text-align: center;
-}
-#main {
+main {
   display: grid;
   grid-template-rows: auto;
   grid-template-areas: "primary-nav" "secondary-nav" "cities" "banner-area" "footer";
   background-color: #EDBFB7;
   text-align: center;
 }
-#primary-nav {
+main #primary-nav {
   grid-area: primary-nav;
   background-color: #F283B6;
   border-bottom: 8px solid #E06C9F;
   padding-top: 10px;
 }
-#primary-nav img {
+main #primary-nav img {
   width: 200px;
 }
-#secondary-nav {
+main #secondary-nav {
   grid-area: secondary-nav;
 }
-#secondary-nav ul li a,
-#banner {
-  color: white;
-  font-size: 1.5em;
-}
-#secondary-nav ul {
+main #secondary-nav ul {
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(3, auto);
 }
-#secondary-nav ul li {
+main #secondary-nav ul li {
   padding-top: 20px;
   font-weight: bold;
 }
-#secondary-nav ul li a {
+main #secondary-nav ul li a {
   padding: 40px;
   vertical-align: 50%;
-}
-#right-aside-inside {
-  display: none;
-  grid-area: aside;
-}
-.pilot {
-  padding: 40px;
-  border-left: 8px solid #6E9887;
   color: white;
+  font-size: 1.5em;
 }
-.pilot img {
-  width: 150px;
-}
-.cities {
+main .cities {
   grid-area: cities;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   background-color: white;
   text-align: left;
 }
-.cities li {
+main .cities li {
   padding: 20px;
   border: 2px solid #E06C9F;
 }
-.city-img {
+main .cities li .city-img {
   width: 250px;
   height: 150px;
   background-size: 120%;
   /* ath passar ekki í 100% */
 }
-.text-wrapper h2 {
-  font-size: 2em;
-  margin-top: 10px;
-}
-.banner-area {
+main .banner-area {
   grid-area: banner-area;
   padding: 40px;
 }
-.city-previews {
+main .banner-area #banner {
+  color: white;
+  font-size: 1.5em;
+}
+main .banner-area #banner .city-previews {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   padding: 40px;
 }
-.city-previews li {
+main .banner-area #banner .city-previews li {
   height: 150px;
   width: 150px;
   border-radius: 50%;
   background-size: 170%;
   /* ath passar ekki í 100% */
 }
-footer {
+main .banner-area #right-aside-inside {
+  display: none;
+  grid-area: banner-area;
+}
+main footer {
   grid-area: footer;
   background-color: #F283B6;
   border-top: 8px solid #E06C9F;
   padding: 40px;
 }
+.pilot {
+  padding: 40px;
+  border-left: 8px solid #6E9887;
+  color: white;
+  background-color: #B5BFA1;
+  text-align: center;
+}
+.pilot img {
+  width: 100px;
+}
+/*#right-aside {
+    background-color:@laurelGreen;
+    text-align: center;
+}*
+
+
+
 /* tablet */
 @media screen and (max-width: 1024px) {
-  body {
-    grid-template-columns: auto;
-  }
-}
-@media screen and (max-width: 450px) {
   body {
     grid-template-columns: auto;
   }
@@ -137,13 +136,40 @@ footer {
     display: none;
   }
   main {
+    grid-template-areas: "primary-nav" "secondary-nav" "cities" "banner-area" "footer";
+  }
+  main .cities {
+    grid-template-columns: repeat(2, auto);
+  }
+  main .banner-area {
     display: grid;
-    grid-template-rows: auto;
+    grid-template-columns: repeat(2, auto);
+  }
+  main .banner-area #right-aside-inside {
+    display: inline-block;
+  }
+  main .banner-area #banner .city-previews {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 40px;
+  }
+  main .banner-area .pilot {
+    border-left: 0px;
+  }
+}
+@media screen and (max-width: 450px) {
+  body {
+    font-size: .8em;
+  }
+  #right-aside {
+    display: none;
+  }
+  main {
     grid-template-areas: "primary-nav" "secondary-nav" "cities" "banner-area" "footer";
     background-color: #EDBFB7;
-    text-align: center;
   }
-  .cities {
-    grid-template-rows: repeat(3, auto);
+  main .cities {
+    grid-template-columns: repeat(1, auto);
+    text-align: center;
   }
 }

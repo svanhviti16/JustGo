@@ -5,15 +5,12 @@
 body {
     display:grid;
     grid-template-columns: auto 250px;
-    grid-template-areas:
+    /*grid-template-areas:
         "main-area"
-        "aside";
+        "aside";*/
 }
-#right-aside {
-    background-color:#B5BFA1;
-    text-align: center;
-}
-#main {
+
+main {
     display: grid;
     grid-template-rows: auto;
     grid-template-areas: 
@@ -22,125 +19,154 @@ body {
         "cities"
         "banner-area"
         "footer";
-    background-color: #EDBFB7;
+    background-color:@spanishPink;
     text-align: center;
-}
 
-#primary-nav {
-    grid-area: primary-nav;
-    background-color:  #F283B6;
-    border-bottom: 8px solid #E06C9F;
-    padding-top: 10px;
-}
-
-#primary-nav img {
-    width: 200px
-}
-
-#secondary-nav {
-    grid-area: secondary-nav;
-}
-
-#secondary-nav ul li a, #banner {
-    color:white;
-    font-size: 1.5em;
-}
-
-#secondary-nav ul {
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(3, auto);
-}
-
-#secondary-nav ul li {
-    padding-top: 20px;
-    font-weight: bold;
-}
-#secondary-nav ul li a {
-    padding: @commonPadding;
-    vertical-align: 50%;
-}
-
-#right-aside-inside {
-    display: none;
-    grid-area: aside;
-
+    #primary-nav {
+        grid-area: primary-nav;
+        background-color:  #F283B6;
+        border-bottom: 8px solid #E06C9F;
+        padding-top: 10px;
+        img {
+            width: 200px
+        }
+    }
+    #secondary-nav {
+        grid-area: secondary-nav;
+        ul {
+            display: grid;
+            justify-content: center;
+            grid-template-columns: repeat(3, auto);
+            li {
+                padding-top: 20px;
+                font-weight: bold;
+                a {
+                    padding: @commonPadding;
+                    vertical-align: 50%;
+                    color:white;
+                    font-size: 1.5em;
+                }
+            }
+        }
+    }
+    .cities {
+        grid-area: cities;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        background-color: white;
+        text-align: left;
+        li {
+            padding: 20px;
+            border: 2px solid #E06C9F;
+            .city-img {
+                width: 250px;
+                height: 150px;
+                background-size: 120%; /* ath passar ekki í 100% */
+            }
+        }
+    }
+    .banner-area {
+        grid-area: banner-area;
+        padding: @commonPadding;
+        #banner {
+            color:white;
+            font-size: 1.5em;
+            .city-previews {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                padding: @commonPadding;
+                li { 
+                    height:150px;
+                    width: 150px;
+                    border-radius: 50%;
+                    background-size: 170%; /* ath passar ekki í 100% */
+                }
+            }
+        }
+        #right-aside-inside {
+            display: none;
+            grid-area: banner-area;
+        
+        }
+    }
+    footer {
+        grid-area: footer;
+        background-color: #F283B6;
+        border-top: 8px solid #E06C9F;
+        padding: @commonPadding;
+    
+    }
 }
 
 .pilot {
     padding: @commonPadding;
     border-left: 8px solid #6E9887;
     color:white;
-}
-.pilot img {
-    width: 150px;
-}
-
-.cities {
-    grid-area: cities;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    background-color: white;
-    text-align: left;
+    background-color:@laurelGreen;
+    text-align: center;
+    img {
+        width: 100px;
+    }
 }
 
-.cities li {
-    padding: 20px;
-    border: 2px solid #E06C9F;
-}
-.city-img {
-    width: 250px;
-    height: 150px;
-    background-size: 120%; /* ath passar ekki í 100% */
-}
-.text-wrapper h2 {
-    font-size: 2em;
-    margin-top: 10px;
-}
-.banner-area {
-    grid-area: banner-area;
-    padding: @commonPadding;
-}
-.city-previews {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    padding: @commonPadding;
-}
-.city-previews li { 
-    height:150px;
-    width: 150px;
-    border-radius: 50%;
-    background-size: 170%; /* ath passar ekki í 100% */
-}
 
-footer {
-    grid-area: footer;
-    background-color: #F283B6;
-    border-top: 8px solid #E06C9F;
-    padding: @commonPadding;
+/*#right-aside {
+    background-color:@laurelGreen;
+    text-align: center;
+}*
 
-}
+
+
 /* tablet */
 @media screen and (max-width: 1024px) {
     body {
         grid-template-columns: auto;
 
     }
+    #right-aside {
+        display: none;
+    }  
+    main {
+        grid-template-areas: 
+            "primary-nav"
+            "secondary-nav"
+            "cities"
+            "banner-area"
+            "footer";
+        .cities {
+            grid-template-columns: repeat(2, auto);
+        }
+        .banner-area {
+            display: grid;
+            grid-template-columns: repeat(2, auto);
+            #right-aside-inside{
+                display: inline-block;
+                
+            }
+            #banner{
+                .city-previews{
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    padding: @commonPadding;
+                }
+            }
+            .pilot{
+                border-left: 0px;
+            }
+            
+        }
+    }
     
 }
 
-
-
 @media screen and (max-width: 450px) {
     body {
-        grid-template-columns: auto;
-    }
+        font-size: .8em;
+    }  
     #right-aside {
         display: none;
-    }    
+    }  
     main {
-        display: grid;
-        grid-template-rows: auto;
         grid-template-areas: 
             "primary-nav"
             "secondary-nav"
@@ -148,9 +174,11 @@ footer {
             "banner-area"
             "footer";
         background-color: #EDBFB7;
-        text-align: center;
+        .cities {
+            grid-template-columns: repeat(1, auto);
+            text-align: center;
+
+        }
     }
-    .cities {
-        grid-template-rows: repeat(3, auto);
-    }
+  
 }
