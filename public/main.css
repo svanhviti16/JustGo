@@ -159,7 +159,7 @@ main footer {
 }
 @media screen and (max-width: 450px) {
   body {
-    font-size: .8em;
+    font-size: .6em;
   }
   #right-aside {
     display: none;
@@ -181,10 +181,17 @@ main footer {
     order: 1;
   }
   main .cities li .city-img {
+    width: 120px;
+    height: 90px;
     background-size: 120%;
     /* ath passar ekki í 100% */
-    padding-left: 10px;
+    padding-left: 20px;
     margin: 0px;
+  }
+  main .banner-area {
+    padding: 15px 0px 0px 0px;
+    display: grid;
+    grid-template-columns: repeat(1, auto);
   }
   main .banner-area #right-aside-inside {
     display: none;
@@ -198,5 +205,8 @@ main footer {
     height: 60px;
     width: 60px;
     border-radius: 50%;
+  }
+  main footer {
+    padding: 20px;
   }
 }
