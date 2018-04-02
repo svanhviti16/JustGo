@@ -165,7 +165,7 @@ main {
     }  
     #right-aside {
         display: none;
-    }  
+    } 
     main {
         grid-template-areas: 
             "primary-nav"
@@ -176,9 +176,48 @@ main {
         background-color: #EDBFB7;
         .cities {
             grid-template-columns: repeat(1, auto);
-            text-align: center;
+            li {
+                display: grid;
+                grid-auto-flow: column;
+                text-align: left;
+                align-items: center;
+
+                &:nth-child(even){
+                    .city-img {
+                        order: 1;
+                    }
+                }
+                .city-img {
+
+                    background-size: 120%; /* ath passar ekki í 100% */
+                    padding-left: 10px;
+                    margin: 0px;
+                }
+
+            }
+     
 
         }
+        .banner-area {
+            #right-aside-inside{
+                display: none;
+                
+            }
+            #banner{
+                .city-previews{
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    padding: @commonPadding;
+                    li{
+                        height:60px;
+                        width: 60px;
+                        border-radius: 50%;
+                    }
+                }
+            }
+        }
+        
+
     }
   
 }

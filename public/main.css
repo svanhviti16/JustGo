@@ -170,6 +170,33 @@ main footer {
   }
   main .cities {
     grid-template-columns: repeat(1, auto);
-    text-align: center;
+  }
+  main .cities li {
+    display: grid;
+    grid-auto-flow: column;
+    text-align: left;
+    align-items: center;
+  }
+  main .cities li:nth-child(even) .city-img {
+    order: 1;
+  }
+  main .cities li .city-img {
+    background-size: 120%;
+    /* ath passar ekki í 100% */
+    padding-left: 10px;
+    margin: 0px;
+  }
+  main .banner-area #right-aside-inside {
+    display: none;
+  }
+  main .banner-area #banner .city-previews {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 40px;
+  }
+  main .banner-area #banner .city-previews li {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
   }
 }
