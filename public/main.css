@@ -41,11 +41,13 @@ main #primary-nav {
   background-color: #F283B6;
   border-bottom: 8px solid #E06C9F;
   padding-top: 10px;
+  padding-bottom: -20px;
 }
 main #primary-nav img {
   width: 200px;
 }
 main #secondary-nav {
+  padding-bottom: -20px;
   grid-area: secondary-nav;
 }
 main #secondary-nav ul {
@@ -80,11 +82,11 @@ main .cities li .city-img {
   background-size: 120%;
   /* ath passar ekki í 100% */
 }
-main .banner-area {
-  grid-area: banner-area;
-  padding: 40px;
+main .cities li div h2 {
+  font-size: 2em;
 }
 main .banner-area #banner {
+  padding: 20px;
   color: white;
   font-size: 1.5em;
 }
@@ -102,7 +104,6 @@ main .banner-area #banner .city-previews li {
 }
 main .banner-area #right-aside-inside {
   display: none;
-  grid-area: banner-area;
 }
 main footer {
   grid-area: footer;
@@ -118,7 +119,7 @@ main footer {
   text-align: center;
 }
 .pilot img {
-  width: 100px;
+  width: 150px;
 }
 /*#right-aside {
     background-color:@laurelGreen;
@@ -131,6 +132,7 @@ main footer {
 @media screen and (max-width: 1024px) {
   body {
     grid-template-columns: auto;
+    font-size: 0.8em;
   }
   #right-aside {
     display: none;
@@ -139,22 +141,68 @@ main footer {
     grid-template-areas: "primary-nav" "secondary-nav" "cities" "banner-area" "footer";
   }
   main .cities {
+    font-size: 0.6em;
+    display: grid;
     grid-template-columns: repeat(2, auto);
+  }
+  main .cities li {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+  }
+  main .cities li .city-img {
+    width: 200px;
+    height: 130px;
+    background-size: 120%;
+    /* ath passar ekki í 100% */
+    margin-right: 20px;
+    align-self: baseline;
+  }
+  main .cities li:nth-child(3) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-start: 1;
+    grid-column-end: 3;
+    align-items: center;
+  }
+  main .cities li:nth-child(3) .city-img {
+    order: 1;
+    width: 250px;
+    height: 140px;
+    background-size: 120%;
+    align-self: center;
+    justify-self: center;
   }
   main .banner-area {
     display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(2, 1fr);
   }
   main .banner-area #right-aside-inside {
     display: inline-block;
   }
+  main .banner-area #banner {
+    padding: 0px;
+  }
+  main .banner-area #banner h1 {
+    padding-top: 20px;
+    font-weight: 100;
+    align-self: center;
+    justify-self: center;
+  }
   main .banner-area #banner .city-previews {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 40px;
+    grid-template-columns: repeat(2, 50%);
+  }
+  main .banner-area #banner .city-previews li {
+    justify-self: center;
+    height: 100px;
+    width: 100px;
+    margin: 10px;
   }
   main .banner-area .pilot {
     border-left: 0px;
+  }
+  main footer {
+    padding: 20px;
   }
 }
 @media screen and (max-width: 450px) {
@@ -169,7 +217,8 @@ main footer {
     background-color: #EDBFB7;
   }
   main .cities {
-    grid-template-columns: repeat(1, auto);
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
   }
   main .cities li {
     display: grid;
@@ -185,8 +234,8 @@ main footer {
     height: 90px;
     background-size: 120%;
     /* ath passar ekki í 100% */
-    padding-left: 20px;
-    margin: 0px;
+    margin-right: 20px;
+    align-self: baseline;
   }
   main .banner-area {
     padding: 15px 0px 0px 0px;
@@ -199,14 +248,11 @@ main footer {
   main .banner-area #banner .city-previews {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    padding: 40px;
+    padding: 10px;
   }
   main .banner-area #banner .city-previews li {
     height: 60px;
     width: 60px;
     border-radius: 50%;
-  }
-  main footer {
-    padding: 20px;
   }
 }
