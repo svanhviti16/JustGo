@@ -1,13 +1,8 @@
 @import "variables.less";
 
-// EDIT BELOW THIS LINE
-
 body {
     display:grid;
     grid-template-columns: auto 250px;
-    /*grid-template-areas:
-        "main-area"
-        "aside";*/
 }
 
 main {
@@ -21,7 +16,6 @@ main {
         "footer";
     background-color:@spanishPink;
     text-align: center;
-
     #primary-nav {
         grid-area: primary-nav;
         background-color:  #F283B6;
@@ -30,10 +24,8 @@ main {
         img {
             width: 200px
         }
-        padding-bottom:-20px;
     }
     #secondary-nav {
-        padding-bottom:-20px;
         grid-area: secondary-nav;
         ul {
             display: grid;
@@ -41,10 +33,10 @@ main {
             grid-template-columns: repeat(3, auto);
             li {
                 padding-top: 20px;
-                font-weight: bold;
+                font-family: 'Josefin Sans', sans-serif;
                 a {
                     padding: @commonPadding;
-                    vertical-align: 50%;
+                    vertical-align: 100%;
                     color:white;
                     font-size: 1.5em;
                 }
@@ -63,7 +55,7 @@ main {
             .city-img {
                 width: 250px;
                 height: 150px;
-                background-size: 120%; /* ath passar ekki í 100% */
+                background-size: cover; /* ath passar ekki í 100% */
                 margin-bottom: 10px;
             }
             div h2 {
@@ -76,21 +68,24 @@ main {
             padding: 20px;
             color:white;
             font-size: 1.5em;
+            h1 {
+                font-weight: 100;
+            }
             .city-previews {
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
                 padding: @commonPadding;
                 li { 
-                    height:150px;
+                    height: 150px;
                     width: 150px;
                     border-radius: 50%;
-                    background-size: 170%; /* ath passar ekki í 100% */
+                    background-size: cover; 
+                    background-position: 150px 150px; 
                 }
             }
         }
         #right-aside-inside {
             display: none;
-        
         }
     }
     footer {
@@ -98,7 +93,6 @@ main {
         background-color: #F283B6;
         border-top: 8px solid #E06C9F;
         padding: @commonPadding;
-    
     }
 }
 
@@ -112,14 +106,6 @@ main {
         width: 150px;
     }
 }
-
-
-/*#right-aside {
-    background-color:@laurelGreen;
-    text-align: center;
-}*
-
-
 
 /* tablet */
 @media screen and (max-width: 1024px) and (min-width: 451px) {
@@ -147,12 +133,11 @@ main {
                 .city-img {
                     width: 200px;
                     height: 130px;
-                    background-size: 120%; /* ath passar ekki í 100% */
+                    background-size: cover; /* ath passar ekki í 100% */
                     margin-right: 20px;
                     align-self: baseline;
                 }
-            }
-            
+            }           
             li:nth-child(3){
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
@@ -163,60 +148,55 @@ main {
                     order: 1;
                     width: 250px;
                     height: 140px;
-                    background-size: 120%; 
+                    background-size: cover; 
                     align-self: center;
-                    justify-self: center;
-
+                    justify-self: right;
                 }
-
-                
             }
         }
         .banner-area {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             #right-aside-inside{
-                display: inline-block;
-                
+                display: inline-block;          
             }
             #banner{
-                padding: 0px;
+                padding: 40px;
                 h1 {
-                    padding-top: 20px;
-                    font-weight: 100;
                     align-self: center;
                     justify-self: center;
+                    font-weight: 100;
                 }
-
                 .city-previews{
+                    padding: 0px;
                     display: grid;
                     grid-template-columns: repeat(2, 50%);                    
-
                     li {
-                        justify-self: center;
-                        height:100px;
+                        height: 100px;
                         width: 100px;
-                        margin:10px;
+                        margin: 10px;
+                        background-size: cover;
+                        background-position: 100px 100px; 
+                        align-self: center;
+                        justify-self: center;
                     }
                 }
             }
             .pilot{
                 border-left: 0px;
             }
-            
         }
         footer {
             padding: 20px;
         }
     }
-    
 }
 
+/*mobile*/
 @media screen and (max-width: 450px) {
     body {
         font-size: .6em;
         grid-template-columns: auto;
-
     }  
     #right-aside {
         display: none;
@@ -235,7 +215,6 @@ main {
             li {
                 display: grid;
                 grid-template-columns: repeat(1, 1fr);
-
                 grid-auto-flow: column;
                 text-align: left;
                 align-items: center;
@@ -244,34 +223,31 @@ main {
                 &:nth-child(even){
                     .city-img {
                         order: 1;
+                        margin-left: 20px;
                     }
                 }
                 .city-img {
                     width: 160px;
                     height: 100px;
-                    background-size: 120%; /* ath passar ekki í 100% */
+                    background-size: cover;
                     margin-right: 20px;
                     align-self: baseline;
                 }
-
             }
-     
-
         }
         .banner-area {
             padding: 15px 0px 0px 0px;
             display: grid;
             grid-template-columns: repeat(1, auto);
             #right-aside-inside{
-                display: none;
-                
+                display: none;     
             }
             #banner{
                 h1 {
-                    padding-bottom: 20px;
                     font-weight: 100;
                     align-self: center;
                     justify-self: center;
+                    justify-content: space-around;
                 }
                 .city-previews{
                     display: grid;
@@ -281,11 +257,12 @@ main {
                         height:60px;
                         width: 60px;
                         border-radius: 50%;
+                        background-size: cover;
+                        background-position: 60px 60px;  
                     }
                 }
             }
         }
-
         footer {
             padding: 20px;
         }
