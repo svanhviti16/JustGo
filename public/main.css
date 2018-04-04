@@ -81,6 +81,7 @@ main .cities li .city-img {
   height: 150px;
   background-size: 120%;
   /* ath passar ekki í 100% */
+  margin-bottom: 10px;
 }
 main .cities li div h2 {
   font-size: 2em;
